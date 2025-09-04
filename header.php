@@ -1,6 +1,16 @@
 <?php
 session_start();
-$userName = $_SESSION['user']['full_name'] ?? 'Kullanıcı';
+$userName = 'Kullanıcı';
+if (isset($_SESSION['user']['username']) && $_SESSION['user']['username'] !== '') {
+  $userName = $_SESSION['user']['username'];
+} else {
+  $first = $_SESSION['user']['firstname'] ?? '';
+  $last = $_SESSION['user']['lastname'] ?? '';
+  $full = trim($first . ' ' . $last);
+  if ($full !== '') {
+    $userName = $full;
+  }
+}
 $csrfToken = $_SESSION['csrf_token'] ?? '';
 $logoFile = __DIR__ . '/assets/logo.svg';
 $hasLogo = file_exists($logoFile);
