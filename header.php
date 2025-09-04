@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (empty($_SESSION['csrf_token'])) {
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 $userName = 'Kullanıcı';
 if (isset($_SESSION['user']['username']) && $_SESSION['user']['username'] !== '') {
   $userName = $_SESSION['user']['username'];
@@ -11,7 +14,7 @@ if (isset($_SESSION['user']['username']) && $_SESSION['user']['username'] !== ''
     $userName = $full;
   }
 }
-$csrfToken = $_SESSION['csrf_token'] ?? '';
+$csrfToken = $_SESSION['csrf_token'];
 $logoFile = __DIR__ . '/assets/logo.svg';
 $hasLogo = file_exists($logoFile);
 ?>
