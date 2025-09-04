@@ -2,6 +2,30 @@
 session_start();
 require_once 'config.php';
 
+// Otomatik giriş
+if (!isset($_SESSION['user_id']) && isset($_COOKIE['rememberme'])) {
+    $rememberId = (int)$_COOKIE['rememberme'];
+    $stmt = $conn->prepare('SELECT id, username, firstname, lastname FROM users WHERE id = ? AND rememberme = 1 LIMIT 1');
+    if ($stmt) {
+        $stmt->bind_param('i', $rememberId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user'] = [
+                'username'  => $row['username'],
+                'firstname' => $row['firstname'],
+                'lastname'  => $row['lastname'],
+                'full_name' => $row['firstname'] . ' ' . $row['lastname']
+            ];
+            header('Location: dashboard.php');
+            exit();
+        }
+        $stmt->close();
+    }
+}
+
+
 $success = '';
 $error = '';
 
@@ -24,6 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         'lastname'  => $row['lastname'],
                         'full_name' => $row['firstname'] . ' ' . $row['lastname']
                     ];
+
+                    $rememberFlag = isset($_POST['remember']) ? 1 : 0;
+                    if ($rememberFlag) {
+                        setcookie('rememberme', $row['id'], time() + (86400 * 30), '/');
+                    } else {
+                        setcookie('rememberme', '', time() - 3600, '/');
+                    }
+                    $update = $conn->prepare('UPDATE users SET rememberme = ? WHERE id = ?');
+                    if ($update) {
+                        $update->bind_param('ii', $rememberFlag, $row['id']);
+                        $update->execute();
+                        $update->close();
+                    }
+
                     header('Location: dashboard.php');
                     exit();
                 } else {
