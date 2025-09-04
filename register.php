@@ -1,3 +1,35 @@
+<?php
+require_once 'config.php';
+
+$success = '';
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $firstname = trim($_POST['firstname'] ?? '');
+    $lastname  = trim($_POST['lastname'] ?? '');
+    $username  = trim($_POST['username'] ?? '');
+    $email     = trim($_POST['email'] ?? '');
+    $password  = $_POST['password'] ?? '';
+
+    if ($firstname && $lastname && $username && $email && $password) {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare('INSERT INTO users (firstname, lastname, username, email, password_hash) VALUES (?, ?, ?, ?, ?)');
+        if ($stmt) {
+            $stmt->bind_param('sssss', $firstname, $lastname, $username, $email, $hash);
+            if ($stmt->execute()) {
+                $success = 'Kayıt başarılı. Giriş yapabilirsiniz.';
+            } else {
+                $error = 'Kayıt sırasında hata: ' . $stmt->error;
+            }
+            $stmt->close();
+        } else {
+            $error = 'Sorgu hazırlanamıyor: ' . $conn->error;
+        }
+    } else {
+        $error = 'Tüm alanları doldurunuz.';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -13,7 +45,12 @@
             <div class="card">
                 <div class="card-header text-center">Kayıt Ol</div>
                 <div class="card-body">
-                    <form>
+                    <?php if ($error): ?>
+                        <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error); ?></div>
+                    <?php elseif ($success): ?>
+                        <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($success); ?></div>
+                    <?php endif; ?>
+                    <form method="post" action="">
                         <div class="mb-3">
                             <label for="firstname" class="form-label">İsim</label>
                             <input type="text" class="form-control" id="firstname" name="firstname" required>

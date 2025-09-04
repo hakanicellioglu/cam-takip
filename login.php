@@ -1,3 +1,39 @@
+<?php
+session_start();
+require_once 'config.php';
+
+$success = '';
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if ($username && $password) {
+        $stmt = $conn->prepare('SELECT id, password_hash FROM users WHERE username = ? OR email = ? LIMIT 1');
+        if ($stmt) {
+            $stmt->bind_param('ss', $username, $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($row = $result->fetch_assoc()) {
+                if (password_verify($password, $row['password_hash'])) {
+                    $_SESSION['user_id'] = $row['id'];
+                    $success = 'Giriş başarılı.';
+                } else {
+                    $error = 'Kullanıcı adı veya parola yanlış.';
+                }
+            } else {
+                $error = 'Kullanıcı adı veya parola yanlış.';
+            }
+            $stmt->close();
+        } else {
+            $error = 'Sorgu hazırlanamıyor: ' . $conn->error;
+        }
+    } else {
+        $error = 'Tüm alanları doldurunuz.';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -13,7 +49,12 @@
             <div class="card">
                 <div class="card-header text-center">Giriş Yap</div>
                 <div class="card-body">
-                    <form>
+                    <?php if ($error): ?>
+                        <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error); ?></div>
+                    <?php elseif ($success): ?>
+                        <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($success); ?></div>
+                    <?php endif; ?>
+                    <form method="post" action="">
                         <div class="mb-3">
                             <label for="username" class="form-label">Kullanıcı adı veya eposta</label>
                             <input type="text" class="form-control" id="username" name="username" required>
