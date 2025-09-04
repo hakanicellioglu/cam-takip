@@ -31,7 +31,7 @@ $hasLogo = file_exists($logoFile);
 
 <body>
   <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-    <div class='container-fluid'>
+    <div class='container'>
       <?php if ($hasLogo): ?>
         <a class='navbar-brand' href='#'><img src='/assets/logo.svg' alt='<?php echo htmlspecialchars('Cam Takip'); ?>' height='30'></a>
       <?php else: ?>
