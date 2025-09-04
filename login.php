@@ -2,36 +2,33 @@
 session_start();
 require_once 'config.php';
 
-$cookieExists = isset($_COOKIE['rememberme']);
-
-// Otomatik giriş
-if (!isset($_SESSION['user_id']) && $cookieExists) {
-    $rememberId = (int)$_COOKIE['rememberme'];
-    $stmt = $conn->prepare('SELECT id, username, firstname, lastname FROM users WHERE id = ? LIMIT 1');
-    if ($stmt) {
-        $stmt->bind_param('i', $rememberId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($row = $result->fetch_assoc()) {
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user'] = [
-                'username'  => $row['username'],
-                'firstname' => $row['firstname'],
-                'lastname'  => $row['lastname'],
-                'full_name' => $row['firstname'] . ' ' . $row['lastname']
-            ];
-            header('Location: dashboard.php');
-            exit();
+// Remember me çerezi varsa kullanıcıyı panele yönlendir
+if (isset($_COOKIE['rememberme'])) {
+    if (!isset($_SESSION['user_id'])) {
+        $rememberId = (int)$_COOKIE['rememberme'];
+        $stmt = $conn->prepare('SELECT id, username, firstname, lastname FROM users WHERE id = ? LIMIT 1');
+        if ($stmt) {
+            $stmt->bind_param('i', $rememberId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($row = $result->fetch_assoc()) {
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user'] = [
+                    'username'  => $row['username'],
+                    'firstname' => $row['firstname'],
+                    'lastname'  => $row['lastname'],
+                    'full_name' => $row['firstname'] . ' ' . $row['lastname']
+                ];
+            }
+            $stmt->close();
         }
-        $stmt->close();
     }
+    header('Location: dashboard.php');
+    exit();
 }
-
 
 $success = '';
 $error = '';
-$cookieMessage = $cookieExists ? 'Remember me çerezi mevcut.' : 'Remember me çerezi bulunamadı.';
-$cookieClass = $cookieExists ? 'success' : 'warning';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
@@ -99,9 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php elseif ($success): ?>
                             <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($success); ?></div>
                         <?php endif; ?>
-                        <div class="alert alert-<?php echo $cookieClass; ?>" role="alert">
-                            <?php echo htmlspecialchars($cookieMessage); ?>
-                        </div>
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Kullanıcı adı veya eposta</label>
