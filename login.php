@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if ($username && $password) {
-        $stmt = $conn->prepare('SELECT id, password_hash FROM users WHERE username = ? OR email = ? LIMIT 1');
+        $stmt = $conn->prepare('SELECT id, username, firstname, lastname, password_hash FROM users WHERE username = ? OR email = ? LIMIT 1');
         if ($stmt) {
             $stmt->bind_param('ss', $username, $username);
             $stmt->execute();
@@ -18,6 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($row = $result->fetch_assoc()) {
                 if (password_verify($password, $row['password_hash'])) {
                     $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['user'] = [
+                        'username'  => $row['username'],
+                        'firstname' => $row['firstname'],
+                        'lastname'  => $row['lastname'],
+                        'full_name' => $row['firstname'] . ' ' . $row['lastname']
+                    ];
                     header('Location: dashboard.php');
                     exit();
                 } else {
