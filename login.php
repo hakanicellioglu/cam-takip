@@ -2,8 +2,10 @@
 session_start();
 require_once 'config.php';
 
+$cookieExists = isset($_COOKIE['rememberme']);
+
 // Otomatik giriş
-if (!isset($_SESSION['user_id']) && isset($_COOKIE['rememberme'])) {
+if (!isset($_SESSION['user_id']) && $cookieExists) {
     $rememberId = (int)$_COOKIE['rememberme'];
     $stmt = $conn->prepare('SELECT id, username, firstname, lastname FROM users WHERE id = ? LIMIT 1');
     if ($stmt) {
@@ -28,6 +30,8 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['rememberme'])) {
 
 $success = '';
 $error = '';
+$cookieMessage = $cookieExists ? 'Remember me çerezi mevcut.' : 'Remember me çerezi bulunamadı.';
+$cookieClass = $cookieExists ? 'success' : 'warning';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
@@ -95,6 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php elseif ($success): ?>
                             <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($success); ?></div>
                         <?php endif; ?>
+                        <div class="alert alert-<?php echo $cookieClass; ?>" role="alert">
+                            <?php echo htmlspecialchars($cookieMessage); ?>
+                        </div>
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Kullanıcı adı veya eposta</label>
