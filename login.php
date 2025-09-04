@@ -5,7 +5,7 @@ require_once 'config.php';
 // Otomatik giriş
 if (!isset($_SESSION['user_id']) && isset($_COOKIE['rememberme'])) {
     $rememberId = (int)$_COOKIE['rememberme'];
-    $stmt = $conn->prepare('SELECT id, username, firstname, lastname FROM users WHERE id = ? AND rememberme = 1 LIMIT 1');
+    $stmt = $conn->prepare('SELECT id, username, firstname, lastname FROM users WHERE id = ? LIMIT 1');
     if ($stmt) {
         $stmt->bind_param('i', $rememberId);
         $stmt->execute();
@@ -54,12 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         setcookie('rememberme', $row['id'], time() + (86400 * 30), '/');
                     } else {
                         setcookie('rememberme', '', time() - 3600, '/');
-                    }
-                    $update = $conn->prepare('UPDATE users SET rememberme = ? WHERE id = ?');
-                    if ($update) {
-                        $update->bind_param('ii', $rememberFlag, $row['id']);
-                        $update->execute();
-                        $update->close();
                     }
 
                     header('Location: dashboard.php');
