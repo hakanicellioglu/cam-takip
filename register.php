@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt) {
             $stmt->bind_param('sssss', $firstname, $lastname, $username, $email, $hash);
             if ($stmt->execute()) {
-                $success = 'Kayıt başarılı. Giriş yapabilirsiniz.';
+                header('Location: login.php');
+                exit;
             } else {
                 $error = 'Kayıt sırasında hata: ' . $stmt->error;
             }
