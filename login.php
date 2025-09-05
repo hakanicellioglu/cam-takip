@@ -113,6 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             padding: 2rem 1rem;
+            font-size: 1rem;
         }
 
         .login-card {
@@ -153,13 +154,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .card-header h3 {
             margin: 0;
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             position: relative;
             z-index: 1;
         }
 
         .card-header .icon {
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             opacity: 0.9;
         }
@@ -251,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .forgot-password {
             color: var(--secondary-color);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             transition: color 0.3s ease;
         }
 

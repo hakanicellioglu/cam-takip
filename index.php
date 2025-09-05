@@ -35,6 +35,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            font-size: 1rem;
         }
 
         .main-container {
@@ -71,14 +72,14 @@
         .welcome-title {
             color: white;
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .welcome-description {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             margin-bottom: 2rem;
             font-weight: 300;
         }
@@ -146,7 +147,7 @@
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: 1.5rem 0;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
 
         .footer a {
@@ -190,7 +191,7 @@
 
         @media (max-width: 480px) {
             .welcome-title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .welcome-description {

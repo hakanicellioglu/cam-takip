@@ -52,12 +52,12 @@ foreach ($orders as $o) {
         font-weight: 600;
         color: #003840;
         margin-bottom: 1rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .dashboard-card .card-text {
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin: 0;
         background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         -webkit-background-clip: text;
@@ -87,7 +87,7 @@ foreach ($orders as $o) {
     }
 
     .dashboard-card .icon {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 1rem;
         opacity: 0.8;
     }
@@ -112,7 +112,7 @@ foreach ($orders as $o) {
         font-weight: 700;
         color: #003840;
         margin-bottom: 2rem;
-        font-size: 2.5rem;
+        font-size: 2rem;
         position: relative;
     }
 
@@ -142,7 +142,7 @@ foreach ($orders as $o) {
         padding: 1.5rem 2rem;
         border: none;
         font-weight: 600;
-        font-size: 1.2rem;
+        font-size: 1.25rem;
     }
 
     .table-card .card-body {
@@ -151,7 +151,7 @@ foreach ($orders as $o) {
 
     .table {
         margin: 0;
-        font-size: 0.95rem;
+        font-size: 0.875rem;
     }
 
     .table thead th {
@@ -210,7 +210,7 @@ foreach ($orders as $o) {
     }
 
     .empty-state .icon {
-        font-size: 4rem;
+        font-size: 2rem;
         margin-bottom: 1rem;
         opacity: 0.5;
     }
