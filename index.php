@@ -234,7 +234,7 @@
 </head>
 
 <body>
-    <div class="main-container">
+    <div class="content main-container">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
