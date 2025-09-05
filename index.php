@@ -15,6 +15,7 @@
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
     
     <style>
         :root {
@@ -71,14 +72,12 @@
         .welcome-title {
             color: white;
             font-weight: 700;
-            font-size: 2.5rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .welcome-description {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
             margin-bottom: 2rem;
             font-weight: 300;
         }
@@ -146,7 +145,6 @@
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: 1.5rem 0;
-            font-size: 0.9rem;
         }
 
         .footer a {
@@ -162,13 +160,11 @@
 
         .glass-icon {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 2rem;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .welcome-title {
-                font-size: 2rem;
             }
             
             .welcome-card {
@@ -190,11 +186,9 @@
 
         @media (max-width: 480px) {
             .welcome-title {
-                font-size: 1.8rem;
             }
             
             .welcome-description {
-                font-size: 1rem;
             }
             
             .welcome-card {
@@ -241,10 +235,10 @@
                     <!-- Logo ve Başlık Alanı -->
                     <div class="logo-area text-center">
                         <div class="logo-placeholder">
-                            <i class="fas fa-wine-glass glass-icon"></i>
+                            <i class="fas fa-wine-glass glass-icon ic-lg"></i>
                         </div>
-                        <h1 class="welcome-title">Cam Takip Sistemine Hoşgeldiniz</h1>
-                        <p class="welcome-description">
+                        <h1 class="welcome-title fs-2xl">Cam Takip Sistemine Hoşgeldiniz</h1>
+                        <p class="welcome-description fs-md">
                             Cam fiyat listesi ve siparişlerinizi kolayca yönetin.
                         </p>
                     </div>
@@ -254,7 +248,7 @@
                         <div class="welcome-card">
                             <div class="card-body text-center">
                                 <div class="mb-4">
-                                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                                    <i class="fas fa-chart-line text-primary mb-3 ic-3xl"></i>
                                     <h4 class="card-title text-dark mb-3">Sisteme Giriş Yapın</h4>
                                     <p class="card-text text-muted">
                                         Hesabınıza giriş yaparak cam ürünlerinizi takip etmeye başlayın.
@@ -287,7 +281,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer fs-xs">
         <div class="container">
             <div class="row">
                 <div class="col-12">

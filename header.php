@@ -35,6 +35,7 @@ $hasLogo = file_exists($logoFile);
   
   <!-- Font Awesome for icons -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+  <link rel="stylesheet" href="assets/css/typography.css">
 
   <style>
     :root {
@@ -103,7 +104,7 @@ $hasLogo = file_exists($logoFile);
       <?php else: ?>
         <i class='fas fa-wine-glass me-2'></i>
       <?php endif; ?>
-      <span class="fs-4">Cam Takip</span>
+      <span class="fs-lg">Cam Takip</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">

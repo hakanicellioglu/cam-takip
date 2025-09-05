@@ -52,12 +52,10 @@ foreach ($orders as $o) {
         font-weight: 600;
         color: #003840;
         margin-bottom: 1rem;
-        font-size: 1.1rem;
     }
 
     .dashboard-card .card-text {
         font-weight: 700;
-        font-size: 2.5rem;
         margin: 0;
         background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         -webkit-background-clip: text;
@@ -87,7 +85,6 @@ foreach ($orders as $o) {
     }
 
     .dashboard-card .icon {
-        font-size: 2.5rem;
         margin-bottom: 1rem;
         opacity: 0.8;
     }
@@ -112,7 +109,6 @@ foreach ($orders as $o) {
         font-weight: 700;
         color: #003840;
         margin-bottom: 2rem;
-        font-size: 2.5rem;
         position: relative;
     }
 
@@ -142,7 +138,6 @@ foreach ($orders as $o) {
         padding: 1.5rem 2rem;
         border: none;
         font-weight: 600;
-        font-size: 1.2rem;
     }
 
     .table-card .card-body {
@@ -151,7 +146,6 @@ foreach ($orders as $o) {
 
     .table {
         margin: 0;
-        font-size: 0.95rem;
     }
 
     .table thead th {
@@ -210,7 +204,6 @@ foreach ($orders as $o) {
     }
 
     .empty-state .icon {
-        font-size: 4rem;
         margin-bottom: 1rem;
         opacity: 0.5;
     }
@@ -222,7 +215,6 @@ foreach ($orders as $o) {
 
     .empty-state p {
         margin: 0;
-        font-size: 1rem;
     }
 
     /* Animation for cards */
@@ -262,7 +254,6 @@ foreach ($orders as $o) {
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .page-title {
-            font-size: 2rem;
             text-align: center;
         }
         
@@ -271,17 +262,15 @@ foreach ($orders as $o) {
         }
         
         .dashboard-card .card-text {
-            font-size: 2rem;
         }
         
         .dashboard-card .icon {
-            font-size: 2rem;
         }
     }
 </style>
 
 <div class="content container">
-    <h1 class='page-title'>
+    <h1 class='page-title fs-2xl'>
         <i class='fas fa-tachometer-alt me-3'></i>
         Panel Özeti
     </h1>
@@ -290,50 +279,50 @@ foreach ($orders as $o) {
         <div class='col-12 col-sm-6 col-lg-3'>
             <div class='dashboard-card total'>
                 <div class='card-body'>
-                    <i class='fas fa-chart-bar icon'></i>
-                    <h5 class='card-title'>Toplam Sipariş</h5>
-                    <p class='card-text'><?php echo htmlspecialchars((string)$totalOrders); ?></p>
+                    <i class='fas fa-chart-bar icon ic-lg'></i>
+                    <h5 class='card-title fs-md'>Toplam Sipariş</h5>
+                    <p class='card-text fs-xl'><?php echo htmlspecialchars((string)$totalOrders); ?></p>
                 </div>
             </div>
         </div>
         <div class='col-12 col-sm-6 col-lg-3'>
             <div class='dashboard-card pending'>
                 <div class='card-body'>
-                    <i class='fas fa-clock icon'></i>
-                    <h5 class='card-title'>Bekleyen</h5>
-                    <p class='card-text'><?php echo htmlspecialchars((string)$pendingCount); ?></p>
+                    <i class='fas fa-clock icon ic-lg'></i>
+                    <h5 class='card-title fs-md'>Bekleyen</h5>
+                    <p class='card-text fs-xl'><?php echo htmlspecialchars((string)$pendingCount); ?></p>
                 </div>
             </div>
         </div>
         <div class='col-12 col-sm-6 col-lg-3'>
             <div class='dashboard-card delivered'>
                 <div class='card-body'>
-                    <i class='fas fa-check-circle icon'></i>
-                    <h5 class='card-title'>Teslim Edilen</h5>
-                    <p class='card-text'><?php echo htmlspecialchars((string)$deliveredCount); ?></p>
+                    <i class='fas fa-check-circle icon ic-lg'></i>
+                    <h5 class='card-title fs-md'>Teslim Edilen</h5>
+                    <p class='card-text fs-xl'><?php echo htmlspecialchars((string)$deliveredCount); ?></p>
                 </div>
             </div>
         </div>
         <div class='col-12 col-sm-6 col-lg-3'>
             <div class='dashboard-card delayed'>
                 <div class='card-body'>
-                    <i class='fas fa-exclamation-triangle icon'></i>
-                    <h5 class='card-title'>Geciken</h5>
-                    <p class='card-text'><?php echo htmlspecialchars((string)$delayedCount); ?></p>
+                    <i class='fas fa-exclamation-triangle icon ic-lg'></i>
+                    <h5 class='card-title fs-md'>Geciken</h5>
+                    <p class='card-text fs-xl'><?php echo htmlspecialchars((string)$delayedCount); ?></p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class='table-card'>
-        <div class='card-header'>
+        <div class='card-header fs-md'>
             <i class='fas fa-list me-2'></i>
             Son Siparişler
         </div>
         <div class='card-body'>
             <?php if ($orders): ?>
                 <div class='table-responsive'>
-                    <table class='table table-hover'>
+                    <table class='table table-hover fs-sm'>
                         <thead>
                             <tr>
                                 <th><i class='fas fa-hashtag me-1'></i> #</th>
@@ -401,9 +390,9 @@ foreach ($orders as $o) {
                 </div>
             <?php else: ?>
                 <div class='empty-state'>
-                    <i class='fas fa-inbox icon'></i>
+                    <i class='fas fa-inbox icon ic-3xl'></i>
                     <h4>Henüz sipariş bulunmuyor</h4>
-                    <p>İlk siparişinizi oluşturmak için siparişler sayfasını ziyaret edin.</p>
+                    <p class='fs-sm'>İlk siparişinizi oluşturmak için siparişler sayfasını ziyaret edin.</p>
                     <a href="<?= url('siparisler') ?>" class='btn btn-primary mt-3'>
                         <i class='fas fa-plus me-2'></i>
                         Yeni Sipariş Oluştur
@@ -418,32 +407,32 @@ foreach ($orders as $o) {
         <div class='col-12'>
             <div class='dashboard-card'>
                 <div class='card-body'>
-                    <h5 class='card-title text-start mb-4'>
+                    <h5 class='card-title fs-md text-start mb-4'>
                         <i class='fas fa-bolt me-2'></i>
                         Hızlı İşlemler
                     </h5>
                     <div class='row g-3'>
                         <div class='col-6 col-md-3'>
                             <a href="<?= url('siparisler') ?>" class='btn btn-outline-primary w-100'>
-                                <i class='fas fa-plus-circle d-block mb-2' style='font-size: 1.5rem;'></i>
+                                <i class='fas fa-plus-circle d-block mb-2 ic-md'></i>
                                 Yeni Sipariş
                             </a>
                         </div>
                         <div class='col-6 col-md-3'>
                             <a href="<?= url('musteriler') ?>" class='btn btn-outline-success w-100'>
-                                <i class='fas fa-user-plus d-block mb-2' style='font-size: 1.5rem;'></i>
+                                <i class='fas fa-user-plus d-block mb-2 ic-md'></i>
                                 Yeni Müşteri
                             </a>
                         </div>
                         <div class='col-6 col-md-3'>
                             <a href="<?= url('urunler') ?>" class='btn btn-outline-info w-100'>
-                                <i class='fas fa-wine-glass d-block mb-2' style='font-size: 1.5rem;'></i>
+                                <i class='fas fa-wine-glass d-block mb-2 ic-md'></i>
                                 Ürün Ekle
                             </a>
                         </div>
                         <div class='col-6 col-md-3'>
                             <a href="<?= url('fiyat-listesi') ?>" class='btn btn-outline-warning w-100'>
-                                <i class='fas fa-tags d-block mb-2' style='font-size: 1.5rem;'></i>
+                                <i class='fas fa-tags d-block mb-2 ic-md'></i>
                                 Fiyat Güncelle
                             </a>
                         </div>

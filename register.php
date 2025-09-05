@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
 
     <style>
         :root {
@@ -115,13 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .card-header h3 {
             margin: 0;
             font-weight: 700;
-            font-size: 1.8rem;
             position: relative;
             z-index: 1;
         }
 
         .card-header .icon {
-            font-size: 3rem;
             margin-bottom: 1rem;
             opacity: 0.9;
         }
@@ -140,7 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 10px;
             border: 2px solid #007369;
             padding: 12px 16px;
-            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
@@ -242,7 +240,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             .card-header h3 {
-                font-size: 1.5rem;
             }
 
             .back-to-home {
@@ -286,8 +283,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="col-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="register-card">
                     <div class="card-header">
-                        <i class="fas fa-user-plus icon"></i>
-                        <h3>Yeni Hesap Oluştur</h3>
+                        <i class="fas fa-user-plus icon ic-2xl"></i>
+                        <h3 class="fs-xl">Yeni Hesap Oluştur</h3>
                     </div>
                     <div class="card-body">
                         <?php if ($error): ?>
