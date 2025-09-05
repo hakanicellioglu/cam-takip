@@ -102,6 +102,7 @@
         .btn-custom-primary {
             background: var(--primary-color);
             border: none;
+            color: #fff;
             padding: 12px 30px;
             border-radius: 10px;
             font-weight: 600;
@@ -118,7 +119,7 @@
         .btn-custom-secondary {
             background: var(--secondary-color);
             border: none;
-            color: white;
+            color: #fff;
             padding: 12px 30px;
             border-radius: 10px;
             font-weight: 600;
@@ -128,7 +129,7 @@
 
         .btn-custom-secondary:hover {
             background: #003840;
-            color: white;
+            color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 56, 64, 0.4);
         }

@@ -158,12 +158,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 56, 64, 0.3);
             width: 100%;
-            color: white;
+            color: #fff;
         }
 
         .btn-custom-success:hover {
             background: #005A5B;
-            color: white;
+            color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 90, 91, 0.4);
         }
