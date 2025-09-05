@@ -50,7 +50,7 @@ foreach ($orders as $o) {
 
     .dashboard-card .card-title {
         font-weight: 600;
-        color: #404040;
+        color: #A65D70;
         margin-bottom: 1rem;
         font-size: 1.1rem;
     }
@@ -110,7 +110,7 @@ foreach ($orders as $o) {
 
     .page-title {
         font-weight: 700;
-        color: #404040;
+        color: #A65D70;
         margin-bottom: 2rem;
         font-size: 2.5rem;
         position: relative;
@@ -137,7 +137,7 @@ foreach ($orders as $o) {
     }
 
     .table-card .card-header {
-        background: linear-gradient(135deg, #646464 0%, #404040 100%);
+        background: linear-gradient(135deg, #A65D70 0%, #D9849B 100%);
         color: white;
         padding: 1.5rem 2rem;
         border: none;
@@ -159,18 +159,18 @@ foreach ($orders as $o) {
         border: none;
         padding: 1rem;
         font-weight: 600;
-        color: #404040;
-        border-bottom: 2px solid #BFBFBF;
+        color: #A65D70;
+        border-bottom: 2px solid #D9A3B1;
     }
 
     .table tbody td {
         padding: 1rem;
-        border-color: #BFBFBF;
+        border-color: #D9A3B1;
         vertical-align: middle;
     }
 
     .table tbody tr:hover {
-        background: rgba(102, 126, 234, 0.05);
+        background: rgba(166, 93, 112, 0.05);
     }
 
     .btn-outline-primary {
@@ -185,7 +185,7 @@ foreach ($orders as $o) {
         background: var(--primary-color);
         border-color: var(--primary-color);
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        box-shadow: 0 4px 12px rgba(166, 93, 112, 0.3);
     }
 
     .btn-outline-secondary {
@@ -200,7 +200,7 @@ foreach ($orders as $o) {
         background: var(--secondary-color);
         border-color: var(--secondary-color);
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        box-shadow: 0 4px 12px rgba(217, 132, 155, 0.3);
     }
 
     .empty-state {

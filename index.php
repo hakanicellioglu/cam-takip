@@ -17,12 +17,12 @@
     
     <style>
         :root {
-            --primary-color: #646464;
-            --secondary-color: #404040;
-            --success-color: #BFBFBF;
-            --warning-color: #404040;
-            --danger-color: #646464;
-            --light-bg: #FFFFFF;
+            --primary-color: #A65D70;
+            --secondary-color: #D9849B;
+            --success-color: #D9A3B1;
+            --warning-color: #D9849B;
+            --danger-color: #A65D70;
+            --light-bg: #E7E7E7;
         }
 
         * {
@@ -30,7 +30,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #646464 0%, #404040 100%);
+            background: linear-gradient(135deg, #A65D70 0%, #D9849B 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -105,13 +105,13 @@
             border-radius: 10px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(100, 100, 100, 0.3);
+            box-shadow: 0 4px 15px rgba(166, 93, 112, 0.3);
         }
 
         .btn-custom-primary:hover {
-            background: #404040;
+            background: #D9849B;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(64, 64, 64, 0.4);
+            box-shadow: 0 6px 20px rgba(217, 132, 155, 0.4);
         }
 
         .btn-custom-secondary {
@@ -122,14 +122,14 @@
             border-radius: 10px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(64, 64, 64, 0.3);
+            box-shadow: 0 4px 15px rgba(217, 132, 155, 0.3);
         }
 
         .btn-custom-secondary:hover {
-            background: #646464;
+            background: #A65D70;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(100, 100, 100, 0.4);
+            box-shadow: 0 6px 20px rgba(166, 93, 112, 0.4);
         }
 
         .buttons-container {
@@ -140,7 +140,7 @@
         }
 
         .footer {
-            background: rgba(64, 64, 64, 0.2);
+            background: rgba(166, 93, 112, 0.2);
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: 1.5rem 0;
