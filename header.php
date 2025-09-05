@@ -113,6 +113,7 @@ $hasLogo = file_exists($logoFile);
       <li><a class="nav-link text-white" href="<?= url('urunler') ?>"><i class='fas fa-wine-glass me-2'></i>Ürünler</a></li>
       <li><a class="nav-link text-white" href="<?= url('fiyat-listesi') ?>"><i class='fas fa-list-alt me-2'></i>Fiyat Listesi</a></li>
       <li><a class="nav-link text-white" href="<?= url('siparisler') ?>"><i class='fas fa-shopping-cart me-2'></i>Siparişler</a></li>
+      <li><a class="nav-link text-white" href="<?= url('api/supplier_contacts/list.php?supplier_id=1') ?>"><i class='fas fa-address-book me-2'></i>Tedarikçi Kişileri</a></li>
     </ul>
     <hr>
     <div class="dropdown">
