@@ -50,6 +50,7 @@ $hasLogo = file_exists($logoFile);
     body {
       background-color: var(--light-bg);
       min-height: 100vh;
+      font-size: 1rem;
     }
 
     /* Sidebar */

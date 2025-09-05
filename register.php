@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             padding: 2rem 1rem;
+            font-size: 1rem;
         }
 
         .register-card {
@@ -115,13 +116,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .card-header h3 {
             margin: 0;
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             position: relative;
             z-index: 1;
         }
 
         .card-header .icon {
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             opacity: 0.9;
         }
