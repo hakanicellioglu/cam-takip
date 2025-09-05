@@ -26,13 +26,13 @@ $hasLogo = file_exists($logoFile);
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Cam Takip Sistemi</title>
-  
+
   <!-- Bootstrap CSS -->
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
-  
+
   <!-- Google Fonts -->
   <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap' rel='stylesheet'>
-  
+
   <!-- Font Awesome for icons -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
 
@@ -113,6 +113,7 @@ $hasLogo = file_exists($logoFile);
       <li><a class="nav-link text-white" href="<?= url('urunler') ?>"><i class='fas fa-wine-glass me-2'></i>Ürünler</a></li>
       <li><a class="nav-link text-white" href="<?= url('fiyat-listesi') ?>"><i class='fas fa-list-alt me-2'></i>Fiyat Listesi</a></li>
       <li><a class="nav-link text-white" href="<?= url('siparisler') ?>"><i class='fas fa-shopping-cart me-2'></i>Siparişler</a></li>
+      <li><a class="nav-link text-white" href="<?= url('api/supplier_contacts/list.php?supplier_id=1') ?>"><i class='fas fa-address-book me-2'></i>Tedarikçi Kişileri</a></li>
     </ul>
     <hr>
     <div class="dropdown">
@@ -123,7 +124,9 @@ $hasLogo = file_exists($logoFile);
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="userDropdown">
         <li><a class="dropdown-item" href="<?= url('profile') ?>"><i class="fas fa-user me-2"></i>Profil</a></li>
         <li><a class="dropdown-item" href="<?= url('settings') ?>"><i class="fas fa-cog me-2"></i>Ayarlar</a></li>
-        <li><hr class="dropdown-divider"></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
         <li>
           <form method="post" action="<?= url('logout') ?>" class="d-inline">
             <?php if ($csrfToken !== ''): ?>
