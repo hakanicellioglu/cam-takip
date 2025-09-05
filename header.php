@@ -35,16 +35,12 @@ $hasLogo = file_exists($logoFile);
   
   <!-- Font Awesome for icons -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
-  
+
   <style>
     :root {
       --primary-color: #003840;
       --secondary-color: #005A5B;
-      --success-color: #007369;
-      --warning-color: #008C72;
-      --danger-color: #02A676;
       --light-bg: #E0F2F1;
-      --dark-bg: #003840;
     }
 
     * {
@@ -56,244 +52,113 @@ $hasLogo = file_exists($logoFile);
       min-height: 100vh;
     }
 
-    .navbar {
-      background: linear-gradient(135deg, #003840 0%, #005A5B 100%) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 1rem 0;
+    /* Sidebar */
+    #sidebar {
+      width: 250px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1045;
     }
 
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: white !important;
-      transition: all 0.3s ease;
+    #sidebar .nav-link {
+      color: rgba(255, 255, 255, 0.9);
+      border-radius: 0.375rem;
     }
 
-    .navbar-brand:hover {
-      color: rgba(255, 255, 255, 0.9) !important;
-      transform: translateY(-1px);
-    }
-
-    .navbar-brand img {
-      filter: brightness(0) invert(1);
-      transition: all 0.3s ease;
-    }
-
-    .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.9) !important;
-      font-weight: 500;
-      padding: 0.5rem 1rem !important;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      margin: 0 0.2rem;
-    }
-
-    .navbar-nav .nav-link:hover {
-      color: white !important;
+    #sidebar .nav-link:hover {
       background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-1px);
+      color: #fff;
     }
 
-    .navbar-nav .nav-link.active {
-      color: white !important;
-      background: rgba(255, 255, 255, 0.2);
+    /* Content */
+    .content {
+      margin-left: 250px;
+      padding: 1rem;
     }
 
-    .navbar-toggler {
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      padding: 0.5rem;
-      border-radius: 8px;
+    /* Mobile */
+    #menu-toggle {
+      display: none;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1050;
     }
 
-    .navbar-toggler:focus {
-      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    .dropdown-menu {
-      border: none;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      padding: 0.5rem 0;
-      margin-top: 0.5rem;
-    }
-
-    .dropdown-item {
-      padding: 0.75rem 1.5rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      color: #003840;
-    }
-
-    .dropdown-item:hover {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .dropdown-divider {
-      margin: 0.5rem 0;
-      border-color: #007369;
-    }
-
-    .dropdown-toggle::after {
-      margin-left: 0.5rem;
-    }
-
-    /* User dropdown styling */
-    #userDropdown {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 0.5rem 1rem !important;
-      font-weight: 600;
-    }
-
-    #userDropdown:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 1rem;
-        margin-top: 1rem;
-        backdrop-filter: blur(10px);
+    @media (max-width: 767.98px) {
+      #sidebar {
+        left: -250px;
+        transition: left 0.3s ease;
       }
 
-      .navbar-nav .nav-link {
-        margin: 0.2rem 0;
+      #sidebar.active {
+        left: 0;
       }
 
-      #userDropdown {
-        background: rgba(255, 255, 255, 0.2);
+      .content {
+        margin-left: 0;
       }
-    }
 
-    /* Animation for navbar */
-    .navbar {
-      animation: slideDown 0.6s ease-out;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
+      #menu-toggle {
+        display: block;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Content area styling */
-    .main-content {
-      padding-top: 2rem;
-      min-height: calc(100vh - 80px);
     }
   </style>
 </head>
 
 <body>
-  <nav class='navbar navbar-expand-lg'>
-    <div class='container'>
-      <?php if ($hasLogo): ?>
-        <a class='navbar-brand' href="<?= url('dashboard') ?>">
-          <img src='/assets/logo.svg' alt='<?php echo htmlspecialchars('Cam Takip'); ?>' height='35' class='me-2'>
-          Cam Takip
-        </a>
-      <?php else: ?>
-        <a class='navbar-brand' href="<?= url('dashboard') ?>">
-          <i class='fas fa-wine-glass me-2'></i>
-          Cam Takip
-        </a>
-      <?php endif; ?>
-      
-      <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#mainNavbar' 
-              aria-controls='mainNavbar' aria-expanded='false' aria-label='Menüyü Aç'>
-        <span class='navbar-toggler-icon'></span>
-      </button>
-      
-      <div class='collapse navbar-collapse' id='mainNavbar'>
-        <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-          <li class='nav-item'>
-            <a class='nav-link' href="<?= url('dashboard') ?>">
-              <i class='fas fa-tachometer-alt me-1'></i>
-              Panel
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href="<?= url('tedarikciler') ?>">
-              <i class='fas fa-truck me-1'></i>
-              Tedarikçiler
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href="<?= url('musteriler') ?>">
-              <i class='fas fa-users me-1'></i>
-              Müşteriler
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href="<?= url('urunler') ?>">
-              <i class='fas fa-wine-glass me-1'></i>
-              Ürünler
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href="<?= url('fiyat-listesi') ?>">
-              <i class='fas fa-list-alt me-1'></i>
-              Fiyat Listesi
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href="<?= url('siparisler') ?>">
-              <i class='fas fa-shopping-cart me-1'></i>
-              Siparişler
-            </a>
-          </li>
-        </ul>
-        
-        <ul class='navbar-nav mb-2 mb-lg-0'>
-          <li class='nav-item dropdown'>
-            <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button' 
-               data-bs-toggle='dropdown' aria-expanded='false'>
-              <i class='fas fa-user-circle me-2'></i>
-              <?php echo htmlspecialchars($userName); ?>
-            </a>
-            <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userDropdown'>
-              <li>
-                <a class='dropdown-item' href="<?= url('profile') ?>">
-                  <i class='fas fa-user me-2'></i>
-                  Profil
-                </a>
-              </li>
-              <li>
-                <a class='dropdown-item' href="<?= url('settings') ?>">
-                  <i class='fas fa-cog me-2'></i>
-                  Ayarlar
-                </a>
-              </li>
-              <li><hr class='dropdown-divider'></li>
-              <li>
-                <form method='post' action="<?= url('logout') ?>" class='d-inline'>
-                  <?php if ($csrfToken !== ''): ?>
-                    <input type='hidden' name='csrf_token' value='<?php echo htmlspecialchars($csrfToken); ?>'>
-                  <?php endif; ?>
-                  <button type='submit' class='dropdown-item text-danger'>
-                    <i class='fas fa-sign-out-alt me-2'></i>
-                    Çıkış Yap
-                  </button>
-                </form>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <button id="menu-toggle" class="btn btn-dark d-md-none">
+    <i class="fas fa-bars"></i>
+  </button>
 
-  <div class="main-content">
+  <div id="sidebar" class="bg-dark text-white d-flex flex-column p-3">
+    <a href="<?= url('dashboard') ?>" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
+      <?php if ($hasLogo): ?>
+        <img src='/assets/logo.svg' alt='<?php echo htmlspecialchars('Cam Takip'); ?>' height='35' class='me-2'>
+      <?php else: ?>
+        <i class='fas fa-wine-glass me-2'></i>
+      <?php endif; ?>
+      <span class="fs-4">Cam Takip</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item"><a class="nav-link text-white" href="<?= url('dashboard') ?>"><i class='fas fa-tachometer-alt me-2'></i>Panel</a></li>
+      <li><a class="nav-link text-white" href="<?= url('tedarikciler') ?>"><i class='fas fa-truck me-2'></i>Tedarikçiler</a></li>
+      <li><a class="nav-link text-white" href="<?= url('musteriler') ?>"><i class='fas fa-users me-2'></i>Müşteriler</a></li>
+      <li><a class="nav-link text-white" href="<?= url('urunler') ?>"><i class='fas fa-wine-glass me-2'></i>Ürünler</a></li>
+      <li><a class="nav-link text-white" href="<?= url('fiyat-listesi') ?>"><i class='fas fa-list-alt me-2'></i>Fiyat Listesi</a></li>
+      <li><a class="nav-link text-white" href="<?= url('siparisler') ?>"><i class='fas fa-shopping-cart me-2'></i>Siparişler</a></li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-user-circle me-2"></i>
+        <strong><?php echo htmlspecialchars($userName); ?></strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="userDropdown">
+        <li><a class="dropdown-item" href="<?= url('profile') ?>"><i class="fas fa-user me-2"></i>Profil</a></li>
+        <li><a class="dropdown-item" href="<?= url('settings') ?>"><i class="fas fa-cog me-2"></i>Ayarlar</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <form method="post" action="<?= url('logout') ?>" class="d-inline">
+            <?php if ($csrfToken !== ''): ?>
+              <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
+            <?php endif; ?>
+            <button type="submit" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    if (menuToggle && sidebar) {
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+    }
+  </script>
