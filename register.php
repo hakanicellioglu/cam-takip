@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once __DIR__ . '/helpers.php';
 
 $success = '';
 $error = '';
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param('sssss', $firstname, $lastname, $username, $email, $hash);
             try {
                 $stmt->execute();
-                header('Location: login.php');
+                header('Location: ' . url('login'));
                 exit;
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() === 1062) {
@@ -275,7 +276,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <a href="index.php" class="back-to-home">
+    <a href="<?= url('') ?>" class="back-to-home">
         <i class="fas fa-arrow-left me-2"></i>
         Ana Sayfaya Dön
     </a>
@@ -301,7 +302,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         <?php endif; ?>
 
-                        <form method="post" action="">
+                        <form method="post" action="<?= url('register') ?>">
                             <div class="row-cols-custom mb-3">
                                 <div>
                                     <label for="firstname" class="form-label">
@@ -353,7 +354,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="card-footer">
                         <p class="mb-0">
                             Zaten hesabınız var mı?
-                            <a href="login.php">
+                            <a href="<?= url('login') ?>">
                                 <i class="fas fa-sign-in-alt me-1"></i>
                                 Giriş yapın
                             </a>

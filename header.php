@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/helpers.php';
 session_start();
 if (empty($_SESSION['csrf_token'])) {
   $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -200,12 +201,12 @@ $hasLogo = file_exists($logoFile);
   <nav class='navbar navbar-expand-lg'>
     <div class='container'>
       <?php if ($hasLogo): ?>
-        <a class='navbar-brand' href='dashboard.php'>
+        <a class='navbar-brand' href="<?= url('dashboard') ?>">
           <img src='/assets/logo.svg' alt='<?php echo htmlspecialchars('Cam Takip'); ?>' height='35' class='me-2'>
           Cam Takip
         </a>
       <?php else: ?>
-        <a class='navbar-brand' href='dashboard.php'>
+        <a class='navbar-brand' href="<?= url('dashboard') ?>">
           <i class='fas fa-wine-glass me-2'></i>
           Cam Takip
         </a>
@@ -219,37 +220,37 @@ $hasLogo = file_exists($logoFile);
       <div class='collapse navbar-collapse' id='mainNavbar'>
         <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
           <li class='nav-item'>
-            <a class='nav-link' href='dashboard.php'>
+            <a class='nav-link' href="<?= url('dashboard') ?>">
               <i class='fas fa-tachometer-alt me-1'></i>
               Panel
             </a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='tedarikciler.php'>
+            <a class='nav-link' href="<?= url('tedarikciler') ?>">
               <i class='fas fa-truck me-1'></i>
               Tedarikçiler
             </a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='musteriler.php'>
+            <a class='nav-link' href="<?= url('musteriler') ?>">
               <i class='fas fa-users me-1'></i>
               Müşteriler
             </a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='urunler.php'>
+            <a class='nav-link' href="<?= url('urunler') ?>">
               <i class='fas fa-wine-glass me-1'></i>
               Ürünler
             </a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='fiyat-listesi.php'>
+            <a class='nav-link' href="<?= url('fiyat-listesi') ?>">
               <i class='fas fa-list-alt me-1'></i>
               Fiyat Listesi
             </a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='siparisler.php'>
+            <a class='nav-link' href="<?= url('siparisler') ?>">
               <i class='fas fa-shopping-cart me-1'></i>
               Siparişler
             </a>
@@ -265,20 +266,20 @@ $hasLogo = file_exists($logoFile);
             </a>
             <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userDropdown'>
               <li>
-                <a class='dropdown-item' href='profile.php'>
+                <a class='dropdown-item' href="<?= url('profile') ?>">
                   <i class='fas fa-user me-2'></i>
                   Profil
                 </a>
               </li>
               <li>
-                <a class='dropdown-item' href='settings.php'>
+                <a class='dropdown-item' href="<?= url('settings') ?>">
                   <i class='fas fa-cog me-2'></i>
                   Ayarlar
                 </a>
               </li>
               <li><hr class='dropdown-divider'></li>
               <li>
-                <form method='post' action='logout.php' class='d-inline'>
+                <form method='post' action="<?= url('logout') ?>" class='d-inline'>
                   <?php if ($csrfToken !== ''): ?>
                     <input type='hidden' name='csrf_token' value='<?php echo htmlspecialchars($csrfToken); ?>'>
                   <?php endif; ?>

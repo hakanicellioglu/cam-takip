@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/helpers.php'; ?>
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -260,11 +261,11 @@
                                 </div>
                                 
                                 <div class="buttons-container">
-                                    <a href="login.php" class="btn btn-custom-primary">
+                                    <a href="<?= url('login') ?>" class="btn btn-custom-primary">
                                         <i class="fas fa-sign-in-alt me-2"></i>
                                         Oturum Aç
                                     </a>
-                                    <a href="register.php" class="btn btn-custom-secondary">
+                                    <a href="<?= url('register') ?>" class="btn btn-custom-secondary">
                                         <i class="fas fa-user-plus me-2"></i>
                                         Kayıt Ol
                                     </a>

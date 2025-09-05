@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'config.php';
+require_once __DIR__ . '/helpers.php';
 
 // Remember me çerezi varsa kullanıcıyı panele yönlendir
 if (isset($_COOKIE['rememberme'])) {
@@ -23,7 +24,7 @@ if (isset($_COOKIE['rememberme'])) {
             $stmt->close();
         }
     }
-    header('Location: dashboard.php');
+    header('Location: ' . url('dashboard'));
     exit();
 }
 
@@ -57,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         setcookie('rememberme', '', time() - 3600, '/');
                     }
 
-                    header('Location: dashboard.php');
+                    header('Location: ' . url('dashboard'));
                     exit();
                 } else {
                     $error = 'Kullanıcı adı veya parola yanlış.';
@@ -318,7 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <a href="index.php" class="back-to-home">
+    <a href="<?= url('') ?>" class="back-to-home">
         <i class="fas fa-arrow-left me-2"></i>
         Ana Sayfaya Dön
     </a>
@@ -344,7 +345,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         <?php endif; ?>
 
-                        <form method="post" action="">
+                        <form method="post" action="<?= url('login') ?>">
                             <div class="mb-3">
                                 <label for="username" class="form-label">
                                     <i class="fas fa-user me-2"></i>
@@ -382,7 +383,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="card-footer">
                         <p class="mb-0">
                             Hesabınız yok mu?
-                            <a href="register.php">
+                            <a href="<?= url('register') ?>">
                                 <i class="fas fa-user-plus me-1"></i>
                                 Kayıt olun
                             </a>

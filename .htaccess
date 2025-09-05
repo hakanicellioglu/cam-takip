@@ -1,0 +1,26 @@
+RewriteEngine On
+
+# Alt klasörde çalışıyorsan örn: /campro/
+#RewriteBase /campro/
+
+# MultiViews çakışmalarını engelle
+Options -MultiViews
+
+# Varsayılan giriş
+DirectoryIndex index.php
+
+# .php ile gelen istekleri uzantısız eşdeğerine 301 yönlendir (kanonik)
+RewriteCond %{THE_REQUEST} \s/+(.+)\.php(\s|\?) [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# İstenen path gerçek dosya/klasörse dokunma
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Uzantısız istek için karşılık .php dosyası varsa iç yönlendirme yap
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+# /index için kanonik: /'a yönlendir
+RewriteRule ^index$ / [R=301,L]
