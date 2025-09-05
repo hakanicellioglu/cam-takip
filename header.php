@@ -37,13 +37,13 @@ $hasLogo = file_exists($logoFile);
   
   <style>
     :root {
-      --primary-color: #0066cc;
-      --secondary-color: #6c757d;
-      --success-color: #198754;
-      --warning-color: #fd7e14;
-      --danger-color: #dc3545;
-      --light-bg: #f8f9fa;
-      --dark-bg: #212529;
+      --primary-color: #003840;
+      --secondary-color: #005A5B;
+      --success-color: #007369;
+      --warning-color: #008C72;
+      --danger-color: #02A676;
+      --light-bg: #E0F2F1;
+      --dark-bg: #003840;
     }
 
     * {
@@ -56,7 +56,7 @@ $hasLogo = file_exists($logoFile);
     }
 
     .navbar {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      background: linear-gradient(135deg, #003840 0%, #005A5B 100%) !important;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 1rem 0;
     }
@@ -124,6 +124,7 @@ $hasLogo = file_exists($logoFile);
       padding: 0.75rem 1.5rem;
       font-weight: 500;
       transition: all 0.3s ease;
+      color: #003840;
     }
 
     .dropdown-item:hover {
@@ -133,7 +134,7 @@ $hasLogo = file_exists($logoFile);
 
     .dropdown-divider {
       margin: 0.5rem 0;
-      border-color: #e9ecef;
+      border-color: #007369;
     }
 
     .dropdown-toggle::after {

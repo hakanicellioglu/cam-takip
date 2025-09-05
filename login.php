@@ -93,12 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <style>
         :root {
-            --primary-color: #0066cc;
-            --secondary-color: #6c757d;
-            --success-color: #198754;
-            --warning-color: #fd7e14;
-            --danger-color: #dc3545;
-            --light-bg: #f8f9fa;
+            --primary-color: #003840;
+            --secondary-color: #005A5B;
+            --success-color: #007369;
+            --warning-color: #008C72;
+            --danger-color: #02A676;
+            --light-bg: #E0F2F1;
         }
 
         * {
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #003840 0%, #005A5B 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -169,13 +169,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-label {
             font-weight: 600;
-            color: #333;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
 
         .form-control {
             border-radius: 10px;
-            border: 2px solid #e9ecef;
+            border: 2px solid #007369;
             padding: 12px 16px;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-control:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(0, 56, 64, 0.25);
         }
 
         .btn-custom-primary {
@@ -193,14 +193,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 10px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 56, 64, 0.3);
             width: 100%;
         }
 
         .btn-custom-primary:hover {
-            background: #0056b3;
+            background: #005A5B;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 90, 91, 0.4);
         }
 
         .form-check-input:checked {
@@ -241,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .card-footer a:hover {
-            color: #0056b3;
+            color: var(--primary-color);
             text-decoration: underline;
         }
 
