@@ -1,7 +1,7 @@
 <?php
 require_once 'header.php';
 ?>
-<div class="container-fluid">
+<div class="container">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h1 class="h4 mb-0">Tedarikçiler</h1>
     <div>
