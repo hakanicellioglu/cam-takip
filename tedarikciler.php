@@ -3,7 +3,7 @@ require_once 'header.php';
 ?>
 <div class="container">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h1 class="h4 mb-0">Tedarikçiler</h1>
+    <h1 class="mb-0 fs-xl">Tedarikçiler</h1>
     <div>
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Yeni Tedarikçi</button>
     </div>
@@ -24,7 +24,7 @@ require_once 'header.php';
       </form>
 
       <div class="table-responsive">
-        <table class="table table-hover align-middle" id="tblSuppliers">
+        <table class="table table-hover align-middle fs-sm" id="tblSuppliers">
           <thead>
             <tr><th>Firma Adı</th><th>Adres</th><th>E-posta</th><th>Vergi No</th><th>Durum</th><th>Kişiler</th><th class="text-end">İşlemler</th></tr>
           </thead>
