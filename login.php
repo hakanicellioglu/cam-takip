@@ -81,16 +81,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giriş Yap - Cam Takip Sistemi</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-color: #0066cc;
@@ -282,15 +282,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             .card-body {
                 padding: 2rem;
             }
-            
+
             .card-header {
                 padding: 1.5rem;
             }
-            
+
             .card-header h3 {
                 font-size: 1.5rem;
             }
-            
+
             .back-to-home {
                 position: static;
                 display: inline-block;
@@ -308,6 +308,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -323,8 +324,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </a>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
+        <div class="row min-vh-100 align-items-center justify-content-center">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="login-card">
                     <div class="card-header">
                         <i class="fas fa-sign-in-alt icon"></i>
@@ -342,23 +343,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <?php echo htmlspecialchars($success); ?>
                             </div>
                         <?php endif; ?>
-                        
+
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="username" class="form-label">
                                     <i class="fas fa-user me-2"></i>
                                     Kullanıcı adı veya eposta
                                 </label>
-                                <input type="text" class="form-control" id="username" name="username" required 
-                                       placeholder="Kullanıcı adınızı veya e-posta adresinizi girin">
+                                <input type="text" class="form-control" id="username" name="username" required
+                                    placeholder="Kullanıcı adınızı veya e-posta adresinizi girin">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">
                                     <i class="fas fa-lock me-2"></i>
                                     Parola
                                 </label>
-                                <input type="password" class="form-control" id="password" name="password" required 
-                                       placeholder="Parolanızı girin">
+                                <input type="password" class="form-control" id="password" name="password" required
+                                    placeholder="Parolanızı girin">
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
@@ -380,7 +381,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="card-footer">
                         <p class="mb-0">
-                            Hesabınız yok mu? 
+                            Hesabınız yok mu?
                             <a href="register.php">
                                 <i class="fas fa-user-plus me-1"></i>
                                 Kayıt olun
@@ -394,7 +395,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Add interactive enhancements
         document.addEventListener('DOMContentLoaded', function() {
@@ -404,7 +405,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 input.addEventListener('focus', function() {
                     this.parentElement.style.transform = 'translateY(-2px)';
                 });
-                
+
                 input.addEventListener('blur', function() {
                     this.parentElement.style.transform = 'translateY(0)';
                 });
