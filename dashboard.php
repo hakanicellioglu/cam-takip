@@ -50,7 +50,7 @@ foreach ($orders as $o) {
 
     .dashboard-card .card-title {
         font-weight: 600;
-        color: #333;
+        color: #404040;
         margin-bottom: 1rem;
         font-size: 1.1rem;
     }
@@ -59,28 +59,28 @@ foreach ($orders as $o) {
         font-weight: 700;
         font-size: 2.5rem;
         margin: 0;
-        background: linear-gradient(135deg, var(--primary-color), #764ba2);
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
     .dashboard-card.pending .card-text {
-        background: linear-gradient(135deg, var(--warning-color), #ff9500);
+        background: linear-gradient(135deg, var(--warning-color), var(--secondary-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
     .dashboard-card.delivered .card-text {
-        background: linear-gradient(135deg, var(--success-color), #20c997);
+        background: linear-gradient(135deg, var(--success-color), var(--primary-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
     .dashboard-card.delayed .card-text {
-        background: linear-gradient(135deg, var(--danger-color), #e74c3c);
+        background: linear-gradient(135deg, var(--danger-color), var(--secondary-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -110,7 +110,7 @@ foreach ($orders as $o) {
 
     .page-title {
         font-weight: 700;
-        color: #333;
+        color: #404040;
         margin-bottom: 2rem;
         font-size: 2.5rem;
         position: relative;
@@ -123,7 +123,7 @@ foreach ($orders as $o) {
         left: 0;
         width: 60px;
         height: 4px;
-        background: linear-gradient(135deg, var(--primary-color), #764ba2);
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         border-radius: 2px;
     }
 
@@ -137,7 +137,7 @@ foreach ($orders as $o) {
     }
 
     .table-card .card-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #646464 0%, #404040 100%);
         color: white;
         padding: 1.5rem 2rem;
         border: none;
@@ -159,13 +159,13 @@ foreach ($orders as $o) {
         border: none;
         padding: 1rem;
         font-weight: 600;
-        color: #333;
-        border-bottom: 2px solid #e9ecef;
+        color: #404040;
+        border-bottom: 2px solid #BFBFBF;
     }
 
     .table tbody td {
         padding: 1rem;
-        border-color: #f1f3f4;
+        border-color: #BFBFBF;
         vertical-align: middle;
     }
 
