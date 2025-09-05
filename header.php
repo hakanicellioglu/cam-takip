@@ -54,12 +54,17 @@ $hasLogo = file_exists($logoFile);
 
     /* Sidebar */
     #sidebar {
-      width: 250px;
+      width: 200px;
       height: 100vh;
       position: fixed;
       top: 0;
-      left: 0;
+      left: -200px;
       z-index: 1045;
+      transition: left 0.3s ease;
+    }
+
+    #sidebar.active {
+      left: 0;
     }
 
     #sidebar .nav-link {
@@ -72,44 +77,22 @@ $hasLogo = file_exists($logoFile);
       color: #fff;
     }
 
-    /* Content */
-    .content {
-      margin-left: 250px;
-      padding: 1rem;
-    }
-
-    /* Mobile */
     #menu-toggle {
-      display: none;
       position: fixed;
       top: 10px;
       left: 10px;
       z-index: 1050;
+      transition: left 0.3s ease;
     }
 
-    @media (max-width: 767.98px) {
-      #sidebar {
-        left: -250px;
-        transition: left 0.3s ease;
-      }
-
-      #sidebar.active {
-        left: 0;
-      }
-
-      .content {
-        margin-left: 0;
-      }
-
-      #menu-toggle {
-        display: block;
-      }
+    #menu-toggle.active {
+      left: 210px;
     }
   </style>
 </head>
 
 <body>
-  <button id="menu-toggle" class="btn btn-dark d-md-none">
+  <button id="menu-toggle" class="btn btn-dark">
     <i class="fas fa-bars"></i>
   </button>
 
@@ -159,6 +142,12 @@ $hasLogo = file_exists($logoFile);
     if (menuToggle && sidebar) {
       menuToggle.addEventListener('click', () => {
         sidebar.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+        }
       });
     }
   </script>
