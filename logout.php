@@ -19,6 +19,8 @@ if (ini_get('session.use_cookies')) {
 }
 session_destroy();
 
+setcookie('rememberme', '', time() - 3600, '/');
+
 header('Location: login.php');
 exit;
 ?>
