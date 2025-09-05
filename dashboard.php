@@ -384,11 +384,11 @@ foreach ($orders as $o) {
                                 <td><?php echo htmlspecialchars($o['delivery']); ?></td>
                                 <td>
                                     <div class='btn-group' role='group'>
-                                        <a href='order_view.php?id=<?php echo urlencode((string)$o['id']); ?>' 
+                                        <a href="<?= url('order_view') ?>?id=<?php echo urlencode((string)$o['id']); ?>"
                                            class='btn btn-outline-primary btn-sm'>
                                             <i class='fas fa-eye'></i>
                                         </a>
-                                        <a href='order_edit.php?id=<?php echo urlencode((string)$o['id']); ?>' 
+                                        <a href="<?= url('order_edit') ?>?id=<?php echo urlencode((string)$o['id']); ?>"
                                            class='btn btn-outline-secondary btn-sm'>
                                             <i class='fas fa-edit'></i>
                                         </a>
@@ -404,7 +404,7 @@ foreach ($orders as $o) {
                     <i class='fas fa-inbox icon'></i>
                     <h4>Henüz sipariş bulunmuyor</h4>
                     <p>İlk siparişinizi oluşturmak için siparişler sayfasını ziyaret edin.</p>
-                    <a href='siparisler.php' class='btn btn-primary mt-3'>
+                    <a href="<?= url('siparisler') ?>" class='btn btn-primary mt-3'>
                         <i class='fas fa-plus me-2'></i>
                         Yeni Sipariş Oluştur
                     </a>
@@ -424,25 +424,25 @@ foreach ($orders as $o) {
                     </h5>
                     <div class='row g-3'>
                         <div class='col-6 col-md-3'>
-                            <a href='siparisler.php' class='btn btn-outline-primary w-100'>
+                            <a href="<?= url('siparisler') ?>" class='btn btn-outline-primary w-100'>
                                 <i class='fas fa-plus-circle d-block mb-2' style='font-size: 1.5rem;'></i>
                                 Yeni Sipariş
                             </a>
                         </div>
                         <div class='col-6 col-md-3'>
-                            <a href='musteriler.php' class='btn btn-outline-success w-100'>
+                            <a href="<?= url('musteriler') ?>" class='btn btn-outline-success w-100'>
                                 <i class='fas fa-user-plus d-block mb-2' style='font-size: 1.5rem;'></i>
                                 Yeni Müşteri
                             </a>
                         </div>
                         <div class='col-6 col-md-3'>
-                            <a href='urunler.php' class='btn btn-outline-info w-100'>
+                            <a href="<?= url('urunler') ?>" class='btn btn-outline-info w-100'>
                                 <i class='fas fa-wine-glass d-block mb-2' style='font-size: 1.5rem;'></i>
                                 Ürün Ekle
                             </a>
                         </div>
                         <div class='col-6 col-md-3'>
-                            <a href='fiyat-listesi.php' class='btn btn-outline-warning w-100'>
+                            <a href="<?= url('fiyat-listesi') ?>" class='btn btn-outline-warning w-100'>
                                 <i class='fas fa-tags d-block mb-2' style='font-size: 1.5rem;'></i>
                                 Fiyat Güncelle
                             </a>
