@@ -280,7 +280,7 @@ foreach ($orders as $o) {
     }
 </style>
 
-<div class="content container">
+<div class="content container my-4 p-4">
     <h1 class='page-title'>
         <i class='fas fa-tachometer-alt me-3'></i>
         Panel Özeti
